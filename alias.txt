@@ -1,0 +1,4 @@
+alias cls=clear
+alias las='eza -laHM --smart-group --total-size --git --color=always --icons=always'
+alias bat=batcat
+alias tree='las --tree'

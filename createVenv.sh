@@ -1,7 +1,7 @@
 #!/bin/bash
 
-dir=$(basename $pwd)
-python -m venv pwd
+dir=$(basename $PWD)
+python3 -m venv $dir
 
 source "./$dir/bin/activate"
 

@@ -1,1 +1,1 @@
-git btop htop zsh fzf bat git-delta eza
+git btop htop zsh fzf bat git-delta eza python3.12-venv

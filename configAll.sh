@@ -4,6 +4,7 @@
 . ./.env
 cp createVenv.sh ~
 cat alias.txt >> ~/.bashrc
+git config --global alias.lol "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 source ./fonts.sh
 source ./addSSHkeys.sh
 

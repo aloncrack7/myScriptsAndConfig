@@ -1,7 +1,8 @@
-# Get the current directory name
-$dir = Split-Path -Leaf (Get-Location)
+param (
+    [string]$dir = $(if ($args.Count -eq 1) { $args[0] } else { Split-Path -Leaf (Get-Location) })
+)
 
-# Create a virtual environment in the current directory
+# Create the virtual environment
 python -m venv $dir
 
 # Activate the virtual environment
@@ -9,3 +10,4 @@ python -m venv $dir
 
 # Upgrade pip
 python -m pip install --upgrade pip
+pip install -r .\requirements.txt

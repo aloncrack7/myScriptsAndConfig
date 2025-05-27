@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Usage: ./generate_hosts_script.sh domain1 domain2 domain3 ...
+# Usage: ./generate_hosts_script.sh domain1 domain2 ...
 # Or: ./generate_hosts_script.sh -f domains.txt
 
 if [[ "$1" == "-f" ]]; then
@@ -46,20 +46,20 @@ for DOMAIN in "${DOMAINS[@]}"; do
     echo "    \"$DOMAIN\"" >> "$SCRIPT_NAME"
 done
 
-# Continue generating the script
-cat << 'EOF' >> "$SCRIPT_NAME"
+# Continue generating the script (note: no single quotes here)
+cat << EOF >> "$SCRIPT_NAME"
 )
 
 # Backup the original /etc/hosts
 cp /etc/hosts /etc/hosts.bak
 
 # Remove any existing entries for these hostnames
-for HOST in "${HOSTS[@]}"; do
-    sed -i "/[[:space:]]\$HOST$/d" /etc/hosts
+for HOST in "\${HOSTS[@]}"; do
+    sed -i "/[[:space:]]\$HOST\$/d" /etc/hosts
 done
 
 # Add new entries
-for HOST in "${HOSTS[@]}"; do
+for HOST in "\${HOSTS[@]}"; do
     echo -e "\$IP\t\$HOST" >> /etc/hosts
 done
 

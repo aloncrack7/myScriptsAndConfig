@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Change the repo origin
+./changeOriginTossh.sh
+
 # Init and fonts
 . ./.env
 cp createVenv.sh ~
